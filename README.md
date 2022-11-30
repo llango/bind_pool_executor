@@ -11,16 +11,35 @@
 
 捆绑池处理，在一个工作执行完开始另一个工作的执行
 
+## 安装
 
-- 开源许可: MIT
-- 文档: https://llango.github.io/bind-pool-executor.
+```
+pip install bind-pool-executor
+```
+
+## 操作
+
+```python
+
+from bind_pool_executor.main import BindProcessPoolExecutor as Pool
+import time 
+import random
+
+def do_job(num):
+    sleep_sec = random.randint(1, 10)
+    print('value: %d, sleep: %d sec.' % (num, sleep_sec))
+    time.sleep(sleep_sec)
+
+with Pool(max_workers=5) as worker:
+    for num in range(10000):
+        print('#%d Worker initialization' % num)
+        worker.submit(do_job, num)
+
+```
 
 
-## 特征
-
-* TODO
+## 许可
+开源许可: MIT
 
 ## 制作
-
-
 该包使用 [Cookiecutter](https://github.com/audreyr/cookiecutter) 和 [`llango/cookiecutter-mkdoc-shapackage`](https://github.com/llango/cookiecutter-mkdoc-shapackage/) 项目模版创建。
