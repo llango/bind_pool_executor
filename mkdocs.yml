@@ -1,0 +1,35 @@
+---
+# 项目信息
+site_name: bind-pool-executor
+site_author: Rontomai
+site_description: 捆绑池处理，在一个工作执行完开始另一个工作的执行
+
+# Github信息
+repo_name: llango/bind-pool-executor 
+repo_url: https://github.com/llango/bind-pool-executor
+edit_uri: ""
+
+# 版权
+copyright: 版权 &copy; 2022 Rontomai
+
+# 配置
+theme:
+  name: shadocs
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.tabs
+  language: cn
+
+# 页脚
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/llango
+      name: llango on GitHub
+
+# 导航
+nav:
+  - 首页: index.md
+  - 版本: version.md
