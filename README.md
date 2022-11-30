@@ -19,6 +19,7 @@ pip install bind-pool-executor
 
 ## 操作
 
+进程操作方式：
 ```python
 
 from bind_pool_executor.main import BindProcessPoolExecutor as Pool
@@ -37,6 +38,24 @@ with Pool(max_workers=5) as worker:
 
 ```
 
+线程操作方式：
+```python
+
+from bind_pool_executor.main import BindProcessPoolExecutor as Pool
+import time 
+import random
+
+def do_job(num):
+    sleep_sec = random.randint(1, 10)
+    print('value: %d, sleep: %d sec.' % (num, sleep_sec))
+    time.sleep(sleep_sec)
+
+with Pool(max_workers=5) as worker:
+    for num in range(10000):
+        print('#%d Worker initialization' % num)
+        worker.submit(do_job, num)
+
+```
 
 ## 许可
 开源许可: MIT
